@@ -1397,20 +1397,20 @@ galleryGrid.innerHTML = initialItems.map((item, index) => {
 
 
                 // rock
-                const rockTitle = document.getElementById("rock-title");
-                const rockDescription = document.getElementById("rock-description");
-                const rockList = document.getElementById("rock-list");
+                // const rockTitle = document.getElementById("rock-title");
+                // const rockDescription = document.getElementById("rock-description");
+                // const rockList = document.getElementById("rock-list");
                 
-                rockTitle.textContent = content.rockSection.title;
-                rockDescription.textContent = content.rockSection.description;
+                // rockTitle.textContent = content.rockSection.title;
+                // rockDescription.textContent = content.rockSection.description;
                 
-                rockList.innerHTML = content.rockSection.songs.map(song => `
-                    <div class="rock-item">
-                        <h3>${song.title}</h3>
-                        <span>${song.artist}</span>
-                        <p>${song.text}</p>
-                    </div>
-                `).join('');
+                // rockList.innerHTML = content.rockSection.songs.map(song => `
+                //     <div class="rock-item">
+                //         <h3>${song.title}</h3>
+                //         <span>${song.artist}</span>
+                //         <p>${song.text}</p>
+                //     </div>
+                // `).join('');
                 
                 // Final
                 document.getElementById('final-text').textContent = content.final.text;
