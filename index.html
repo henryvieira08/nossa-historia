@@ -1639,16 +1639,16 @@ galleryGrid.innerHTML = initialItems.map((item, index) => {
             const playIcon = document.getElementById('play-icon');
             const pauseIcon = document.getElementById('pause-icon');
             const startJourneyBtn = document.getElementById('start-journey-btn');
-            // const audio = document.getElementById("music");
+            const music = document.getElementById("music");
 
             // Função para tocar/pausar
             function togglePlay() {
-                if (audio.paused) {
-                    audio.play().catch(() => {
+                if (music.paused) {
+                    music.play().catch(() => {
                         console.log("Interação necessária para tocar o áudio");
                     });
                 } else {
-                    audio.pause();
+                    music.pause();
                 }
             }
 
