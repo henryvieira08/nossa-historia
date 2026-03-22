@@ -767,36 +767,88 @@
             }
         }
 
-         /*------------------------------------*\
+        /*------------------------------------*\
           #SEÇÃO DEIXA O ROCK FALAR
         \*------------------------------------*/
+        
         #rock {
             padding: 40px 20px;
             text-align: center;
         }
         
-        .rock-item {
-            margin: 20px auto;
+        /* Container do carrossel */
+        .rock-carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        /* Área onde o conteúdo aparece */
+        #rock-content {
             max-width: 600px;
+            min-height: 180px;
+        }
+        
+        /* Card */
+        .rock-item {
+            margin: 0 auto;
             padding: 20px;
             border-radius: 10px;
             background: rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
         
+        /* Título */
         .rock-item h3 {
             margin-bottom: 5px;
         }
         
+        /* Artista */
         .rock-item span {
             font-size: 14px;
             color: gray;
         }
         
+        /* Texto */
         .rock-item p {
             margin-top: 10px;
             white-space: pre-line;
         }
+        
+        /* Botões */
+        #rock button {
+            background: none;
+            border: none;
+            font-size: 26px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        /* Hover bonito */
+        #rock button:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Botão desativado */
+        #rock button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
 
+        .rock-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInRock 0.5s ease forwards;
+        }
+        
+        @keyframes fadeInRock {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         
         /*------------------------------------*\
           #SEÇÃO FINAL & EASTER EGG
@@ -1034,7 +1086,14 @@
          <section id="rock">
             <h2 id="rock-title"></h2>
             <p id="rock-description"></p>
-            <div id="rock-list"></div>
+        
+            <div class="rock-carousel">
+                <button id="rock-prev">⬅️</button>
+        
+                <div id="rock-content"></div>
+        
+                <button id="rock-next">➡️</button>
+            </div>
         </section>
 
         <!-- ======================= SEÇÃO FINAL ======================= -->
@@ -1397,22 +1456,48 @@ galleryGrid.innerHTML = initialItems.map((item, index) => {
 
 
                 // rock
-                // const rockTitle = document.getElementById("rock-title");
-                // const rockDescription = document.getElementById("rock-description");
-                // const rockList = document.getElementById("rock-list");
+                const rockTitle = document.getElementById("rock-title");
+                const rockDescription = document.getElementById("rock-description");
+                const rockContent = document.getElementById("rock-content");
+                const prevBtn = document.getElementById("rock-prev");
+                const nextBtn = document.getElementById("rock-next");
                 
-                // rockTitle.textContent = content.rockSection.title;
-                // rockDescription.textContent = content.rockSection.description;
+                let currentRockIndex = 0;
                 
-                // rockList.innerHTML = content.rockSection.songs.map(song => `
-                //     <div class="rock-item">
-                //         <h3>${song.title}</h3>
-                //         <span>${song.artist}</span>
-                //         <p>${song.text}</p>
-                //     </div>
-                // `).join('');
+                rockTitle.textContent = content.rockSection.title;
+                rockDescription.textContent = content.rockSection.description;
                 
-                // Final
+                function renderRockItem(index) {
+                    const song = content.rockSection.songs[index];
+                
+                    rockContent.innerHTML = `
+                        <div class="rock-item">
+                            <h3>${song.title}</h3>
+                            <span>${song.artist}</span>
+                            <p>${song.text}</p>
+                        </div>
+                    `;
+                }
+                
+                // Inicial
+                renderRockItem(currentRockIndex);
+                
+                // Botões
+                nextBtn.addEventListener("click", () => {
+                    if (currentRockIndex < content.rockSection.songs.length - 1) {
+                        currentRockIndex++;
+                        renderRockItem(currentRockIndex);
+                    }
+                });
+                
+                prevBtn.addEventListener("click", () => {
+                    if (currentRockIndex > 0) {
+                        currentRockIndex--;
+                        renderRockItem(currentRockIndex);
+                    }
+                });
+                
+                // Parte Final
                 document.getElementById('final-text').textContent = content.final.text;
             }
 
