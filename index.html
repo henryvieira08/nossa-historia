@@ -972,21 +972,17 @@
             </div>
         </section>
 
-        <!-- ======================= SEÇÃO NOSSA MÚSICA ======================= -->
+       <!-- ======================= SEÇÃO NOSSA MÚSICA ======================= -->
         <section id="music">
-            <h2 class="reveal">Nossa Música</h2>
-        
+            <h2 class="reveal">Nossa Música</h2>r
             <div class="music-player-container reveal">
                 <img src="https://placehold.co/300x300/FF0000/FFFFFF?text=Pra+Voc%C3%AA%0AGuardei+o+Amor&font-size=45"
                     alt="Capa do Álbum" class="album-art">
-        
                 <div class="track-info">
                     <h3 id="track-title">Carregando...</h3>
                     <p id="track-artist">Carregando...</p>
                 </div>
-        
                 <canvas id="waveform"></canvas>
-        
                 <div class="audio-controls">
                     <button id="play-pause-btn" aria-label="Tocar/Pausar">
                         <svg id="play-icon" viewBox="0 0 24 24">
@@ -997,13 +993,11 @@
                         </svg>
                     </button>
                 </div>
-        
                 <p class="music-description" id="music-text">Carregando...</p>
             </div>
-        
-            <!-- IMPORTANTE -->
-            <audio id="audio-player" preload="none"></audio>
+            <audio id="audio-player" src=""></audio> <!-- O SRC será definido via JS -->
         </section>
+
 
         <!-- ======================= SEÇÃO LINHA DO TEMPO ======================= -->
         <section id="timeline">
@@ -1375,13 +1369,10 @@
             // --- Carregamento de Conteúdo Dinâmico ---
             function loadContent() {
                 // Música
-                    document.getElementById('track-title').textContent = content.music.title;
-                    document.getElementById('track-artist').textContent = content.music.artist;
-                    document.getElementById('music-text').textContent = content.music.description;
-                
-                    // aqui está correto
-                    audio.src = content.music.audioSrc;
-                }
+                document.getElementById('track-title').textContent = content.music.title;
+                document.getElementById('track-artist').textContent = content.music.artist;
+                document.getElementById('music-text').textContent = content.music.description;
+                document.getElementById('audio-player').src = content.music.audioSrc;
 
                 // Linha do Tempo
                 const timelineContainer = document.getElementById('timeline-container');
@@ -1644,24 +1635,20 @@ galleryGrid.innerHTML = initialItems.map((item, index) => {
             });
 
             // --- Player de Música Simples ---
-                const audio = document.getElementById('audio-player');
-                const playPauseBtn = document.getElementById('play-pause-btn');
-                const playIcon = document.getElementById('play-icon');
-                const pauseIcon = document.getElementById('pause-icon');
-
-            playPauseBtn.addEventListener("click", togglePlay);   
+            const audio = document.getElementById('audio-player');
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const playIcon = document.getElementById('play-icon');
+            const pauseIcon = document.getElementById('pause-icon');
+            const startJourneyBtn = document.getElementById('start-journey-btn');
 
             // Função para tocar/pausar
             function togglePlay() {
-                if (music.paused) {
-                    music.play().catch(() => {
-                        console.log("Interação necessária para tocar o áudio");
-                    });
+                if (audio.paused) {
+                    audio.play();
                 } else {
-                    music.pause();
+                    audio.pause();
                 }
             }
-
             // Evento para o botão principal "Começar"
             startJourneyBtn.addEventListener('click', () => {
                 document.getElementById('music').scrollIntoView({ behavior: 'smooth' });
