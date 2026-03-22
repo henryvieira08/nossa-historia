@@ -767,6 +767,37 @@
             }
         }
 
+         /*------------------------------------*\
+          #SEÇÃO DEIXA O ROCK FALAR
+        \*------------------------------------*/
+        #rock {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .rock-item {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.05);
+        }
+        
+        .rock-item h3 {
+            margin-bottom: 5px;
+        }
+        
+        .rock-item span {
+            font-size: 14px;
+            color: gray;
+        }
+        
+        .rock-item p {
+            margin-top: 10px;
+            white-space: pre-line;
+        }
+
+        
         /*------------------------------------*\
           #SEÇÃO FINAL & EASTER EGG
         \*------------------------------------*/
@@ -999,6 +1030,13 @@
             </div>
         </section>
 
+        <!-- ======================= DEIXA O ROCK FALAR ======================= -->
+         <section id="rock">
+            <h2 id="rock-title"></h2>
+            <p id="rock-description"></p>
+            <div id="rock-list"></div>
+        </section>
+
         <!-- ======================= SEÇÃO FINAL ======================= -->
         <section id="final" class="final-call">
             <h2 class="reveal">Nosso Infinito Particular</h2>
@@ -1197,6 +1235,29 @@ E talvez seja por isso que ela faça tanto sentido… porque fala exatamente sob
                         "Henry"
                     ]
                 },
+
+                rockSection: {
+                    title: "Quando o rock fala por mim...",
+                    description: "Tem coisas que eu sinto e não consigo explicar... então deixo o rock falar por mim.",
+                    songs: [
+                        {
+                            title: "Nome da Música",
+                            artist: "Artista",
+                            text: "Trecho da música aqui..."
+                        },
+                        {
+                            title: "Nome da Música",
+                            artist: "Artista",
+                            text: "Trecho da música aqui..."
+                        },
+                        {
+                            title: "Nome da Música",
+                            artist: "Artista",
+                            text: "Trecho da música aqui..."
+                        }
+                    ]
+                },
+                
                 final: {
                     text: "Nossa história não tem um ponto final. É uma série de reticências, um universo em constante expansão, cheio de novas estrelas para descobrir. E eu mal posso esperar para explorar cada uma delas com você."
                 }
@@ -1267,6 +1328,23 @@ E talvez seja por isso que ela faça tanto sentido… porque fala exatamente sob
                 ${content.letter.paragraphs.map(p => `<p>${p}</p>`).join('')}
             `;
 
+
+                //rock
+                const rockTitle = document.getElementById("rock-title");
+                const rockDescription = document.getElementById("rock-description");
+                const rockList = document.getElementById("rock-list");
+                
+                rockTitle.textContent = content.rockSection.title;
+                rockDescription.textContent = content.rockSection.description;
+                
+                rockList.innerHTML = content.rockSection.songs.map(song => `
+                    <div class="rock-item">
+                        <h3>${song.title}</h3>
+                        <span>${song.artist}</span>
+                        <p>${song.text}</p>
+                    </div>
+                `).join('');
+                
                 // Final
                 document.getElementById('final-text').textContent = content.final.text;
             }
