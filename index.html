@@ -1236,67 +1236,67 @@
                     ]
                 },
 
-                // rockSection: {
-                //     title: "Quando o rock fala por mim...",
-                //     description: "Tem coisas que eu sinto e não consigo explicar... então deixo o rock falar por mim.",
-                //     songs: [
-                //         {
-                //             title: "Still Loving You",
-                //             artist: "Scorpions",
-                //             text: "Fight, babe, I'll fight...To win back your love again",
-                //             "If we'd go again all the way from the start...I would try to change the things that killed our love"
-                //         },
-                //         {
-                //             title: "Here Without You",
-                //             artist: "3 Doors Down",
-                //             text: "But all the miles that separate",
-                //             "They disappear now when I'm dreaming of your face",
-                //             "I'm here without you, baby",
-                //             "But you're still on my lonely mind",
-                //             "I think about you, baby",
-                //             "And I dream about you all the time",
-                //             "I'm here without you, baby",
-                //             "But you're still with me in my dreams",
-                //             "And tonight it's only you and me, yeah"
-                //         },
-                //         {
-                //             title: "Gunslinger",
-                //             artist: "Avenged Sevenfold",
-                //             text: "My heart's always with you now....I'm making it through, it's been far too long",
-                //             "We've proven our love over time's so strong",
-                //             "In all that we do"
-                //         },
-                //         {
-                //             title: "Diz pra mim",
-                //             artist: "Banda Malta",
-                //             text: "De onde estou, posso ver",
-                //             "O caminho que me leva a você",
-                //             "Pensei em te guardar",
-                //             "Pra nunca mais ter fim"
-                //         },
-                //         {
-                //             title: "Memórias (Come Wake Me Up)",
-                //             artist: "Banda Malta",
-                //             text: `Hoje eu vejo que não consigo entender
-                //                 O que houve entre nós
-                //                 Eu ainda consigo ouvir sua voz
-                //                 Me dizendo o que eu já sei
-                //                 Tudo tem um começo e o fim...E mesmo sem querer eu te deixo partir
-                //                 Pra que possa tentar ser feliz
-                //                 Outra vez recomeçar
+                rockSection: {
+                    title: "Quando o rock fala por mim...",
+                    description: "Tem coisas que eu sinto e não consigo explicar... então deixo o rock falar por mim.",
+                    songs: [
+                        {
+                            title: "Still Loving You",
+                            artist: "Scorpions",
+                            text: "Fight, babe, I'll fight...To win back your love again",
+                            "If we'd go again all the way from the start...I would try to change the things that killed our love"
+                        },
+                        {
+                            title: "Here Without You",
+                            artist: "3 Doors Down",
+                            text: "But all the miles that separate",
+                            "They disappear now when I'm dreaming of your face",
+                            "I'm here without you, baby",
+                            "But you're still on my lonely mind",
+                            "I think about you, baby",
+                            "And I dream about you all the time",
+                            "I'm here without you, baby",
+                            "But you're still with me in my dreams",
+                            "And tonight it's only you and me, yeah"
+                        },
+                        {
+                            title: "Gunslinger",
+                            artist: "Avenged Sevenfold",
+                            text: "My heart's always with you now....I'm making it through, it's been far too long",
+                            "We've proven our love over time's so strong",
+                            "In all that we do"
+                        },
+                        {
+                            title: "Diz pra mim",
+                            artist: "Banda Malta",
+                            text: "De onde estou, posso ver",
+                            "O caminho que me leva a você",
+                            "Pensei em te guardar",
+                            "Pra nunca mais ter fim"
+                        },
+                        {
+                            title: "Memórias (Come Wake Me Up)",
+                            artist: "Banda Malta",
+                            text: `Hoje eu vejo que não consigo entender
+                                O que houve entre nós
+                                Eu ainda consigo ouvir sua voz
+                                Me dizendo o que eu já sei
+                                Tudo tem um começo e o fim...E mesmo sem querer eu te deixo partir
+                                Pra que possa tentar ser feliz
+                                Outra vez recomeçar
                                 
-                //                 E quando eu me perco em suas memórias
-                //                 Vejo um espelho contando histórias
-                //                 Sei que é difícil de esquecer essa dor
-                //                 E quando penso no que vivemos
-                //                 Fecho os olhos, me perco no tempo
-                //                 Pra mim não acabou
-                //                 Sei que você vai seguir
-                //                 Mas eu não vou desistir
-                //                 Eu espero que você se entregue neste amor`
-                //         }
-                //     ]
-                // },
+                                E quando eu me perco em suas memórias
+                                Vejo um espelho contando histórias
+                                Sei que é difícil de esquecer essa dor
+                                E quando penso no que vivemos
+                                Fecho os olhos, me perco no tempo
+                                Pra mim não acabou
+                                Sei que você vai seguir
+                                Mas eu não vou desistir
+                                Eu espero que você se entregue neste amor`
+                        }
+                    ]
+                },
                 
                 final: {
                     text: "Nossa história não tem um ponto final. É uma série de reticências, um universo em constante expansão, cheio de novas estrelas para descobrir. E eu mal posso esperar para explorar cada uma delas com você."
@@ -1396,21 +1396,21 @@ galleryGrid.innerHTML = initialItems.map((item, index) => {
             `;
 
 
-                //rock
-                // const rockTitle = document.getElementById("rock-title");
-                // const rockDescription = document.getElementById("rock-description");
-                // const rockList = document.getElementById("rock-list");
+                // rock
+                const rockTitle = document.getElementById("rock-title");
+                const rockDescription = document.getElementById("rock-description");
+                const rockList = document.getElementById("rock-list");
                 
-                // rockTitle.textContent = content.rockSection.title;
-                // rockDescription.textContent = content.rockSection.description;
+                rockTitle.textContent = content.rockSection.title;
+                rockDescription.textContent = content.rockSection.description;
                 
-                // rockList.innerHTML = content.rockSection.songs.map(song => `
-                //     <div class="rock-item">
-                //         <h3>${song.title}</h3>
-                //         <span>${song.artist}</span>
-                //         <p>${song.text}</p>
-                //     </div>
-                // `).join('');
+                rockList.innerHTML = content.rockSection.songs.map(song => `
+                    <div class="rock-item">
+                        <h3>${song.title}</h3>
+                        <span>${song.artist}</span>
+                        <p>${song.text}</p>
+                    </div>
+                `).join('');
                 
                 // Final
                 document.getElementById('final-text').textContent = content.final.text;
