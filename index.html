@@ -1341,25 +1341,52 @@
                     `<button class="filter-btn ${tag === 'todos' ? 'active' : ''}" data-filter="${tag}">${tag.charAt(0).toUpperCase() + tag.slice(1)}</button>`
                 ).join('');
 
-                galleryGrid.innerHTML = content.gallery.map((item, index) => {
-                    if (item.type === "video") {
-                        return `
-                        <div class="gallery-item" data-tags="${item.tags.join(' ')}" data-index="${index}">
-                            <video muted>
-                                <source src="${item.src}" type="video/mp4">
-                            </video>
-                        <div class="overlay">▶ Ver vídeo</div>
-                    </div>
-                `;
-                    } else {
-                        return `
-                    <div class="gallery-item" data-tags="${item.tags.join(' ')}" data-index="${index}">
-                        <img src="${item.src}" alt="${item.caption}" loading="lazy">
-                        <div class="overlay">Ver Foto</div>
-                    </div>
-                `;
-                    }
-                }).join('');
+                const initialItems = content.gallery.slice(0, 12);
+
+galleryGrid.innerHTML = initialItems.map((item, index) => {
+    if (item.type === "video") {
+        return `
+            <div class="gallery-item" data-tags="${item.tags.join(' ')}" data-index="${index}">
+                <video muted>
+                    <source src="${item.src}" type="video/mp4">
+                </video>
+                <div class="overlay">▶ Ver vídeo</div>
+            </div>
+        `;
+    } else {
+        return `
+            <div class="gallery-item" data-tags="${item.tags.join(' ')}" data-index="${index}">
+                <img src="${item.src}" alt="${item.caption}" loading="lazy">
+                <div class="overlay">Ver Foto</div>
+            </div>
+        `;
+    }
+}).join('');
+                setTimeout(() => {
+    const remainingItems = content.gallery.slice(12);
+
+    galleryGrid.innerHTML += remainingItems.map((item, index) => {
+        const realIndex = index + 12;
+
+        if (item.type === "video") {
+            return `
+                <div class="gallery-item" data-tags="${item.tags.join(' ')}" data-index="${realIndex}">
+                    <video muted>
+                        <source src="${item.src}" type="video/mp4">
+                    </video>
+                    <div class="overlay">▶ Ver vídeo</div>
+                </div>
+            `;
+        } else {
+            return `
+                <div class="gallery-item" data-tags="${item.tags.join(' ')}" data-index="${realIndex}">
+                    <img src="${item.src}" alt="${item.caption}" loading="lazy">
+                    <div class="overlay">Ver Foto</div>
+                </div>
+            `;
+        }
+    }).join('');
+}, 1000);
 
                 // Carta
                 const letterContainer = document.getElementById('letter-container');
@@ -1528,11 +1555,14 @@
             const playIcon = document.getElementById('play-icon');
             const pauseIcon = document.getElementById('pause-icon');
             const startJourneyBtn = document.getElementById('start-journey-btn');
+            const audio = document.getElementById("music");
 
             // Função para tocar/pausar
             function togglePlay() {
                 if (audio.paused) {
-                    audio.play();
+                    audio.play().catch(() => {
+                        console.log("Interação necessária para tocar o áudio");
+                    });
                 } else {
                     audio.pause();
                 }
