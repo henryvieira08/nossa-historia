@@ -771,13 +771,13 @@
           #SEÇÃO DEIXA O ROCK FALAR
         \*------------------------------------*/
         
-        #rock {
+        /* #rock {
             padding: 40px 20px;
             text-align: center;
         }
         
         /* Container do carrossel */
-        .rock-carousel {
+        /* .rock-carousel {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -786,57 +786,57 @@
         }
         
         /* Área onde o conteúdo aparece */
-        #rock-content {
+        /* #rock-content {
             max-width: 600px;
             min-height: 180px;
-        }
+        } */
         
         /* Card */
-        .rock-item {
+        /* .rock-item {
             margin: 0 auto;
             padding: 20px;
             border-radius: 10px;
             background: rgba(0,0,0,0.05);
             transition: all 0.3s ease;
-        }
+        } */
         
         /* Título */
-        .rock-item h3 {
+        /* .rock-item h3 {
             margin-bottom: 5px;
-        }
+        } */
         
         /* Artista */
-        .rock-item span {
+        /* .rock-item span {
             font-size: 14px;
             color: gray;
-        }
+        } */
         
         /* Texto */
-        .rock-item p {
+        /* .rock-item p {
             margin-top: 10px;
             white-space: pre-line;
-        }
+        } */
         
         /* Botões */
-        #rock button {
+        /* #rock button {
             background: none;
             border: none;
             font-size: 26px;
             cursor: pointer;
             transition: transform 0.2s ease;
-        }
+        } */
         
         /* Hover bonito */
-        #rock button:hover {
+        /* #rock button:hover {
             transform: scale(1.2);
-        }
+        } */
         
         /* Botão desativado */
-        #rock button:disabled {
+        /* #rock button:disabled {
             opacity: 0.3;
             cursor: not-allowed;
-        }
-
+        } */
+/* 
         .rock-item {
             opacity: 0;
             transform: translateY(20px);
@@ -847,9 +847,8 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
+            } */
         }
-        
         /*------------------------------------*\
           #SEÇÃO FINAL & EASTER EGG
         \*------------------------------------*/
@@ -1083,7 +1082,7 @@
         </section>
 
         <!-- ======================= DEIXA O ROCK FALAR ======================= -->
-         <section id="rock">
+         <!-- <section id="rock">
             <h2 id="rock-title"></h2>
             <p id="rock-description"></p>
         
@@ -1094,7 +1093,7 @@
         
                 <button id="rock-next">➡️</button>
             </div>
-        </section>
+        </section> -->
 
         <!-- ======================= SEÇÃO FINAL ======================= -->
         <section id="final" class="final-call">
@@ -1456,28 +1455,28 @@ galleryGrid.innerHTML = initialItems.map((item, index) => {
 
 
                 // rock
-                const rockTitle = document.getElementById("rock-title");
-                const rockDescription = document.getElementById("rock-description");
-                const rockContent = document.getElementById("rock-content");
-                const prevBtn = document.getElementById("rock-prev");
-                const nextBtn = document.getElementById("rock-next");
+                // const rockTitle = document.getElementById("rock-title");
+                // const rockDescription = document.getElementById("rock-description");
+                // const rockContent = document.getElementById("rock-content");
+                // const prevBtn = document.getElementById("rock-prev");
+                // const nextBtn = document.getElementById("rock-next");
                 
-                let currentRockIndex = 0;
+                // let currentRockIndex = 0;
                 
-                rockTitle.textContent = content.rockSection.title;
-                rockDescription.textContent = content.rockSection.description;
+                // rockTitle.textContent = content.rockSection.title;
+                // rockDescription.textContent = content.rockSection.description;
                 
-                function renderRockItem(index) {
-                    const song = content.rockSection.songs[index];
+                // function renderRockItem(index) {
+                //     const song = content.rockSection.songs[index];
                 
-                    rockContent.innerHTML = `
-                        <div class="rock-item">
-                            <h3>${song.title}</h3>
-                            <span>${song.artist}</span>
-                            <p>${song.text}</p>
-                        </div>
-                    `;
-                }
+                //     rockContent.innerHTML = `
+                //         <div class="rock-item">
+                //             <h3>${song.title}</h3>
+                //             <span>${song.artist}</span>
+                //             <p>${song.text}</p>
+                //         </div>
+                //     `;
+                // }
                 
                 // Inicial
                 renderRockItem(currentRockIndex);
